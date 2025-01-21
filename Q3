@@ -1,0 +1,38 @@
+function velocityOverTime()
+    % velocityOverTime Computes the velocity as a function of time by integrating
+    % the acceleration a(t) = exp(-(t / 0.5)^2) using cumtrapz().
+
+    % Define the interval
+    interval = [-10, 10];
+
+    % Generate t-values for the computation
+    t = linspace(interval(1), interval(2), 1000); % 1000 points for accuracy
+
+    % Define the acceleration function a(t)
+    a = exp(-(t / 0.5).^2);
+
+    % Perform cumulative numerical integration to find velocity
+    v = cumtrapz(t, a); % Velocity as a function of time
+
+    % Plot the acceleration and velocity
+    figure;
+
+    % Subplot for acceleration
+    subplot(2, 1, 1);
+    plot(t, a, 'LineWidth', 1.5);
+    grid on;
+    xlabel('t');
+    ylabel('a(t)');
+    title('Acceleration vs Time');
+
+    % Subplot for velocity
+    subplot(2, 1, 2);
+    plot(t, v, 'LineWidth', 1.5, 'Color', 'r');
+    grid on;
+    xlabel('t');
+    ylabel('v(t)');
+    title('Velocity vs Time');
+
+    % Display key results
+    fprintf('The velocity at t = %d is approximately: %.4f\n meters per second', interval(2), v(end));
+end
