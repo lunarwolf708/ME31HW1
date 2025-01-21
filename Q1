@@ -1,0 +1,20 @@
+function find_roots_of_polynomial()
+    % Coefficients of the characteristic polynomial
+    Acoeffs = [ 3, -1, -2, 7];
+    Bcoeffs = [16, 216, 0, 1, -9];
+    Ccoeffs = [32, 0, -11, 0, 0, 18];
+  
+    
+    % Find roots of the characteristic polynomial
+    Ar = roots(Acoeffs);
+    Br = roots(Bcoeffs);
+    Cr = roots(Ccoeffs);
+
+    % Display the roots
+    disp('The roots of the characteristic polynomial A Are:');
+    disp(Ar)
+    disp('The roots of the characteristic polynomial B Are:');
+    disp(Br)
+    disp('The roots of the characteristic polynomial C Are:');
+    disp(Cr);
+end
