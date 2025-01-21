@@ -1,0 +1,42 @@
+clear
+close all 
+
+%Time array with random interval tranposed to be a column
+t=[0:0.001:5]'; 
+
+%Constants at 0 given by the problem 
+thd0=0;
+th0=0;
+rd0=0; 
+r0=0.5;
+
+
+%acceleartion functions given 
+thetaddot=t.*exp(-t);
+rddot=20*exp(-0.3*t).*cos(2*pi*t); 
+
+
+%plot reasults of functions w labeled axis 
+figure(1);
+subplot(2,1,1); plot(t,thetaddot); xlabel('Time(s)'); ylabel('Angular Acceleration (rad/s^2)')
+subplot(2,1,2); plot(t,rddot); xlabel('Time(s)'); ylabel('Linear Acceleration (m/s^2)')
+
+%Integrate Functions 
+thdot=cumtrapz(thetaddot)+thd0;
+th=cumtrapz(thdot)+th0;
+rdot=cumtrapz(rddot)+rd0;
+r=cumtrapz(rdot)+r0; 
+
+%plot reasults of functions w labeled axis, part c
+figure(2);
+subplot(2,1,1); plot(t,th); xlabel('Time(s)'); ylabel('angle (rad)')
+subplot(2,1,2); plot(t,r); xlabel('Time(s)'); ylabel('radial position (m)')
+
+%plot x versus y, 2D space 
+xpos=r.*cos(th);
+ypos=r.*sin(th);
+
+%Fig 3 
+figure(3);
+plot(xpos,ypos); xlabel('X Position'); ylabel('Y Position')
+
