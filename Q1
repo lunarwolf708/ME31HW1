@@ -1,0 +1,26 @@
+% Define the components of the expression
+z1 = 2 * exp(1j * pi / 4);  % 2e^(j*pi/4)
+z2 = 2 - 2j;               % Numerator (2 - 2j)
+z3 = -1 + 1j;              % Denominator (-1 + j)
+
+% Compute the full expression
+result = z1 * (z2 / z3);
+
+% Compute the magnitude
+magnitude = abs(result);
+
+% Compute the phase in radians
+phase = angle(result);
+
+% Compute the real part
+real_part = real(result);
+
+% Compute the imaginary part
+imaginary_part = imag(result);
+
+% Display the results
+fprintf('Expression Result: %.4f + %.4fj\n', real(result), imag(result));
+fprintf('Magnitude: %.4f\n', magnitude);
+fprintf('Phase (radians): %.4f\n', phase);
+fprintf('Real Part: %.4f\n', real_part);
+fprintf('Imaginary Part: %.4f\n', imaginary_part);
